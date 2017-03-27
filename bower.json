@@ -1,6 +1,6 @@
 {
 	"name": "pp-jquery-file-download",
-	"description":"jQuery File Download is a cross server platform compatible jQuery plugin that allows for an Ajax-like file download experience that is not normally possible using the web.",
+	"description":"Cross platform compatible jQuery plugin allowing Ajax-like file download experience.",
 	"version":"1.4.6",
 	"keywords": [
 		"download",
