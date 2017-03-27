@@ -378,6 +378,24 @@ $.extend({
 
                 return;
             }
+		
+            var failedCookie = settings.cookieName.toLowerCase() + "=failure";
+
+            if (document.cookie.toLowerCase().indexOf(failedCookie) > -1) {
+
+                //execute specified callback
+                internalCallbacks.onFail('', fileUrl);
+
+                //remove cookie
+                var cookieData = settings.cookieName + "=; path=" + settings.cookiePath + "; expires=" + new Date(0).toUTCString() + ";";
+                if (settings.cookieDomain) cookieData += " domain=" + settings.cookieDomain + ";";
+                document.cookie = cookieData;
+
+                //remove iframe
+                cleanUp(true);
+
+                return;
+            }
 
             //has an error occured?
             //if neither containers exist below then the file download is occuring on the current window
